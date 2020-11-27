@@ -1,0 +1,26 @@
+﻿@{ 
+    var tempDataYeniDersTalebiYarat = TempData["YeniDersTalebiYarat1"];
+    var tempDataDersTaleplerim = TempData["DersTaleplerim1"];
+}
+
+
+<div class="container">
+    <h4>DERS TALEBI ISLEMLERI</h4>
+    <hr />
+    @if (tempDataYeniDersTalebiYarat == null && tempDataDersTaleplerim == null)
+    {
+        <div class="column" style="margin-left:20px">
+            <div class="col-lg-6">@Html.ActionLink("- Ders Taleplerim", "DersTaleplerim", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</div>
+            <div class="col-lg-6">@Html.ActionLink("- Yeni Ders Talebi Yarat", "YeniDersTalebiYarat", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</div>
+        </div>
+    }
+    @if (tempDataYeniDersTalebiYarat != null)
+    {
+        @Html.Partial("YeniDersTalebiYaratPartial")
+
+    }
+    @if (tempDataDersTaleplerim != null)
+    {
+        @Html.Action("DersTaleplerimPartial")
+    }
+</div>

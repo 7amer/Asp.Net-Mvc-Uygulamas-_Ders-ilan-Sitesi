@@ -1,0 +1,43 @@
+﻿@model List<DataBolumu.Models.Mesajlar>
+
+@foreach (var data in Model)
+{
+    <div class="card-body glyphicon-credit-card mb-3" style="border: 1px solid rgba(0,0,0,.125)">
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0">Mesaj Id</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                @data.MesajId
+
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0">Gonderen Kullanici Adi</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                @data.GonderenId
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0">Konu</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                @data.Konu
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0">Mesaj Icerigi</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                @data.MesajIcerigi
+            </div>
+        </div>
+    </div>
+}

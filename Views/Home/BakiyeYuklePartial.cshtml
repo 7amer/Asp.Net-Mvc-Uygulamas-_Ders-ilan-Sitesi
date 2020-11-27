@@ -1,0 +1,24 @@
+﻿@model DataBolumu.Models.ViewModel
+
+
+@{
+    ViewBag.Title = "Bakiye Yukle";
+}
+
+@using (Html.BeginForm("BakiyeYuklePartial", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.Label("Bakiye Yukle", htmlAttributes: new { @class = "control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Uye.Bakiye, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Uye.Bakiye, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Bakiye Yukle" class="btn btn-default" style="margin-left:50px;border:1px solid rgba(0,0,0,.125);" />
+        </div>
+    </div>
+}
+

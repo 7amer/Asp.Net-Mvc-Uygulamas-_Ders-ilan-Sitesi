@@ -1,0 +1,29 @@
+﻿@{
+    var tempDataGelenMesajlar = TempData["GelenMesajlar1"];
+    var tempDataMesajGonder = TempData["MesajGonder1"];
+}
+
+<div class="container">
+    <h4>MESAJLAR</h4>
+    <hr />
+    @if (tempDataGelenMesajlar == null && tempDataMesajGonder == null)
+    {
+        <div class="column" style="margin-left:20px">
+            <div class="col-lg-6">@Html.ActionLink("- Gelen Mesajlar", "GelenMesajlar", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</div>
+            <div class="col-lg-6">@Html.ActionLink("- Mesaj Gonder", "MesajGonder", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</div>
+        </div>
+    }
+
+
+    @if(tempDataMesajGonder != null)
+    {
+        @Html.Partial("MesajGonderPartial");
+    }
+
+    @if(tempDataGelenMesajlar != null)
+    {
+        @Html.Action("GelenMesajlarPartial");
+    }
+
+</div>
+

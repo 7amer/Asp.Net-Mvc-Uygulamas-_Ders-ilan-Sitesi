@@ -1,0 +1,19 @@
+﻿@{ 
+    var tempDataBakiyeYukle = TempData["BakiyeYukle1"];
+}
+
+<div class="container">
+    <h4>UYELIK ISLEMLERI</h4>
+    <hr />
+    @if (tempDataBakiyeYukle == null)
+    {
+        <div class="column" style="margin-left:20px">
+            <div class="col-lg-6">@Html.ActionLink("- Bakiye Yukle", "BakiyeYukle", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</div>
+        </div>
+    }
+    @if(tempDataBakiyeYukle != null)
+    {
+        @Html.Partial("BakiyeYuklePartial")
+    }
+
+</div>

@@ -1,0 +1,18 @@
+﻿@{ 
+    var tempDataUyelikBilgileriniGuncelle = TempData["UyelikBilgileriniGuncelle1"];
+}
+
+<div class="container">
+    <h4>KISISEL BILGILER</h4>
+    <hr />
+    @if (tempDataUyelikBilgileriniGuncelle == null)
+    {
+        <div class="column" style="margin-left:20px">
+            <div class="col-lg-6">@Html.ActionLink("- Uyelik Bilgilerini Guncelle", "UyelikBilgileriniGuncelle", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</div>
+        </div>
+    }
+    @if(tempDataUyelikBilgileriniGuncelle != null)
+    {
+        @Html.Partial("UyelikBilgileriniGuncellePartial")
+    }
+</div>

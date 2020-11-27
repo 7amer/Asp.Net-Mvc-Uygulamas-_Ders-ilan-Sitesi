@@ -1,0 +1,55 @@
+﻿@model DataBolumu.Models.ViewModel
+
+@{
+    var tempDataAnasayfaArama = TempData["AnasayfaArama1"];
+    ViewBag.Title = "Home Page";
+}
+<div class="col">
+    <div class="row jumbotron">
+        <h3>Tek adimda ders arayanlari / ders verenleri bul!</h3>
+        @using (Html.BeginForm("SonuclariGoster", "Home", FormMethod.Get))
+        {
+            <div class="row" style="margin-top:50px;">
+                <div class="col-lg-3">
+                    <div class="form-group" style="margin-top:27px;">
+                        @Html.Label("Aradiginiz Musteri", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Uye.UyelikTipi, new SelectList(Enum.GetValues(typeof(EnIyiOzelDers.Models.UyelikTipiModel))))
+                            @Html.ValidationMessageFor(model => model.Uye.UyelikTipi, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group" style="margin-top:48px;">
+                        @Html.LabelFor(model => model.Uye.Sehir, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Uye.Sehir, new SelectList(Enum.GetValues(typeof(EnIyiOzelDers.Models.SehirModel))))
+                            @Html.ValidationMessageFor(model => model.Uye.Sehir, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group" style="margin-top:3px;">
+                        @Html.Label("Alinmak/Verilmek Istenen Ders", htmlAttributes: new { @class = "control-label col-md-5" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.DersTalebi.AlinmakVerilmekIstenenDersDersler, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DersTalebi.AlinmakVerilmekIstenenDersDersler, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group" style="margin-top:50px;">
+                        <input type="submit" value="Hemen Bul!" class="btn btn-default" style="margin-left:50px;border:1px solid rgba(0,0,0,.125);" />
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    @if (tempDataAnasayfaArama != null)
+    {
+        @Html.Action("AnasayfaArama")
+    }
+
+</div>
+

@@ -1,0 +1,66 @@
+﻿@model DataBolumu.Models.ViewModel
+
+@{ 
+ 
+}
+
+@{
+    var dersTalebi = ViewData["Ders Talebi"] as DataBolumu.Models.DersTalepleri;
+    ViewBag.Title = "Ogrenci Anasayfasi";
+    var tempDataMesajlar = TempData["Mesajlar1"];
+    var tempDataUyeBilgileri = TempData["UyeBilgileri1"];
+    var tempDataUyelikIslemleri = TempData["UyelikIslemleri1"];
+    var tempDataDersTalebiIslemleri = TempData["DersTalebiIslemleri1"];
+    var tempDataKisiselBilgiler = TempData["KisiselBilgiler1"];
+}
+<div class="container" style="margin-top:100px;">
+
+    <div style="">
+        <span>
+            <h3>Hoşgeldin, @Html.DisplayFor(model=>model.Uye.KullaniciAdi)</h3>
+        </span>
+    </div>
+    <hr style="margin-bottom:50px" />
+    <div class="row" style="">
+        <div class="col col-md-3">
+            <div>
+                <div style="text-transform:none; min-height:20px;border:1px solid rgba(0,0,0,.125);"><h4 style="text-transform: none; text-align: center; vertical-align: middle;margin-left:25px;margin-top:5px;">@Html.ActionLink("Mesajlar", "Mesajlar", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</h4></div>
+                <div style="text-transform:none;min-height:20px;margin-top:20px;border:1px solid rgba(0,0,0,.125);"><h4 style="text-transform: none; text-align: center; vertical-align: middle;margin-left:35px;margin-top:5px;">@Html.ActionLink("Uyelik Islemleri", "UyelikIslemleri", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</h4></div>
+                <div style="text-transform:none;min-height:20px;margin-top:20px;border:1px solid rgba(0,0,0,.125);"><h4 style="text-transform: none; text-align: center; vertical-align: middle;margin-left:20px;margin-top:5px;">@Html.ActionLink("Ders Talebi Islemleri", "DersTalebiIslemleri", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</h4></div>
+                <div style="text-transform:none;min-height:20px;margin-top:20px;border:1px solid rgba(0,0,0,.125);"><h4 style="text-transform: none; text-align: center; vertical-align: middle;margin-left:35px;margin-top:5px;">@Html.ActionLink("Kisisel Bilgiler", "KisiselBilgiler", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "text-transform:none;text-align:center;" })</h4></div>
+            </div>
+
+        </div>
+        @if (tempDataUyeBilgileri == null)
+        {
+            <div class="col md-9">
+                @Html.Partial("UyeAnasayfasiBuyukKisim")
+            </div>
+        }
+        @if (tempDataMesajlar != null && tempDataUyeBilgileri != null)
+        {
+            <div class="col md-9">
+                @Html.Partial("MesajlarPartial")
+            </div>
+        }
+        @if (tempDataUyelikIslemleri != null && tempDataUyeBilgileri != null)
+        {
+            <div class="col md-9">
+                @Html.Partial("UyelikIslemleriPartial")
+            </div>
+        }
+        @if (tempDataDersTalebiIslemleri != null && tempDataUyeBilgileri != null)
+        {
+            
+            <div class="col md-9">
+                @Html.Partial("DersTalebiIslemleriPartial")
+            </div>
+        }
+        @if (tempDataKisiselBilgiler != null && tempDataUyeBilgileri != null)
+        {
+            <div class="col md-9">
+                @Html.Partial("KisiselBilgilerPartial")
+            </div>
+        }
+    </div>
+</div>

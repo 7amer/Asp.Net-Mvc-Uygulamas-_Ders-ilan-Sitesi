@@ -1,0 +1,80 @@
+﻿@model DataBolumu.Models.ViewModel
+
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://holdencargroup.dk/wp-content/uploads/2019/08/JohnDoe.png" alt="Admin" class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>@Html.DisplayFor(model => model.Uye.KullaniciAdi)</h4>
+                                    <p class="text-secondary mb-1">@Html.DisplayFor(model => model.Uye.UyelikTipi)</p>
+                                    <p class="text-muted font-size-sm">@Html.DisplayFor(model => model.Uye.Sehir)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Adı Soyadı</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @Html.DisplayFor(model => model.Uye.Adi) @Html.DisplayFor(model => model.Uye.Soyadi)
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @Html.DisplayFor(model => model.Uye.EMailAdresi)
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Telefon</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @Html.DisplayFor(model => model.Uye.IrtibatNo)
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Bakiye</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    @Html.DisplayFor(model => model.Uye.Bakiye)
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row gutters-sm">
+                        <div class="col-sm-12 mb-3">
+                            <div class="card h-100 ">
+                                <div class="card-body style="margin-left:10px;">
+                                    <h6 class="d-flex align-items-center mb-3" style="margin-bottom:-5px;"><i class="material-icons text-info mr-2">Hakkımda</h6>
+                                    <hr style="margin-top:0px;" />
+                                    <p style="text-transform:none;font-display:unset;">Lorem epsilum</p>
+                                </div>
+                            
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+

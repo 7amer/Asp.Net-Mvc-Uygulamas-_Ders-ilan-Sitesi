@@ -1,0 +1,44 @@
+﻿@model List<DataBolumu.Models.DersTalepleri>
+
+
+@foreach (var data in Model)
+{
+    <div class="card-body glyphicon-credit-card mb-3" style="border: 1px solid rgba(0,0,0,.125)">
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0">Ders Talebi Id</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                @data.DersTalebiId
+
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0">Alinmak/Verilmek Istenen Ders/Dersler</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                @data.AlinmakVerilmekIstenenDersDersler
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0">Ders Talebi Konu Basligi</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                @data.DersTalebiKonuBasligi
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <h6 class="mb-0">Ders Talebi Icerigi</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                @data.DersTalebiIcerigi
+            </div>
+        </div>
+    </div>
+}
